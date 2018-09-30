@@ -199,8 +199,7 @@ int main(int argc, char* argv[]) {
     int res = pcap_next_ex(handle, &header, &packet);
     if (res == 0) continue;
     if (res == -1 || res == -2) break;
-    printf("==============================\n");
-    printf("We captured %u bytes\n",header->caplen);
+    
     if(!check_packet((struct arp_pkthdr *)packet))
       continue;
     uint8_t * attack_packet;
